@@ -7,7 +7,7 @@ RUN go mod download
 RUN CGO_ENABLED=0 GOOS=linux go build main.go
 
 FROM alpine
-COPY go.mod go.sum ./
+COPY go.mod ./
 
 COPY --from=base /app/main ./
 

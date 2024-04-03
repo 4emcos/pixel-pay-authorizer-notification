@@ -21,11 +21,13 @@ func main() {
 }
 
 func authorizationHandler(w http.ResponseWriter, r *http.Request) {
+	// add a 80% chance of returning true
 	weightedRandom := random.Intn(100) < 80
 	json.NewEncoder(w).Encode(map[string]bool{"authorization": weightedRandom})
 }
 
 func notificationHandler(w http.ResponseWriter, r *http.Request) {
+	// add a 80% chance of returning true
 	weightedRandom := random.Intn(100) < 80
 	json.NewEncoder(w).Encode(map[string]bool{"notification": weightedRandom})
 }
